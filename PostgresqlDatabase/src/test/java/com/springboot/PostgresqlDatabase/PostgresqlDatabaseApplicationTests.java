@@ -8,6 +8,7 @@ class PostgresqlDatabaseApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
