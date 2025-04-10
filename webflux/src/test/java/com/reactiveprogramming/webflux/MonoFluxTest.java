@@ -19,7 +19,11 @@ public class MonoFluxTest {
 
     @Test
     public void testFlux(){
-        Flux<String> fluxString = Flux.just("Spring","Spring boot","hibernate","reactive programming").log();
+        Flux<String> fluxString = Flux.just("Spring","Spring boot","hibernate","reactive programming")
+                .concatWithValues("AWS")
+                .concatWith(Flux.error(new RuntimeException("Exception occured in flux")))
+                .concatWithValues("cloud")
+                .log();
         fluxString.subscribe(System.out::println);
     }
 
